@@ -83,7 +83,7 @@ unless ($apikey){
 	print $fh $apikey;
 	close $fh or $logger->logdie("Couldn't close $api_key_file: $!");
 }
-$logger->logdie('Invalid API key') unless ($apikey =~ /^[0-9A-F]{8}-(?:[0-9A-F]{4}-){2}[0-9A-F]{16}\z$/);
+# $logger->logdie('Invalid API key') unless ($apikey =~ /^[0-9A-F]{8}-(?:[0-9A-F]{4}-){2}[0-9A-F]{16}\z$/);
 
 my $stats = {
 	apikey  => $apikey,
