@@ -72,10 +72,11 @@ unless ($apikey){
 		exit 1;
 	}
 	chomp($apikey);
-	unless ($apikey =~ /^[0-9A-F]{8}-(?:[0-9A-F]{4}-){2}[0-9A-F]{16}\z$/){
-		print "Invalid API Key\n";
-		exit 1;
-	}
+	# No Validation of API-Key for Debugging reasons
+	# unless ($apikey =~ /^[0-9A-F]{8}-(?:[0-9A-F]{4}-){2}[0-9A-F]{16}\z$/){ 
+	#	print "Invalid API Key\n";
+	#	exit 1;
+	# }
 	umask 066;
 	mkdir $confdir;
 	open my $fh, '>', $api_key_file or $logger->logdie("Couldn't open $api_key_file for writing: $!");
