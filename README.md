@@ -1,34 +1,13 @@
 Linode Longview
 ===============
 
+## Configuration
+Place API-Key in /etc/linode/longview.key 
+
+Linode/Longview/Util.pm:  $post_target   = 'https://longview.linode.com/post';
+
 ## Overview
 Longview is a system level statistics collection and graphing service, powered by the Longview open source software agent that can be installed onto any Linux system. The Longview agent collects system statistics and sends them to us, where we store the data and present it in beautiful and meaningful ways.
-
-### Preview
-
-The Linode Manager allows you to interact with data collected and analyze your system's resource usage. You can drill into individual servers:
-
-![Longview preview](http://i.imgur.com/mLC8MvK.png "Linode Longview")
-
-Linode Longview also gives you a high-level view of your fleet and lets you sort your servers' resource usage by the metrics that matter to you:
-
-![Longview preview](https://forum.linode.com/images/longview/z6RVTUv.gif "Linode Longview")
-
-### Features
-
-* Compatibility with Linux-based operating systems, Linode and non-Linode.
-* An open-source software agent
-* Up-to-the-minute information about each system
-* Overview dashboard for all systems
-* Zoomable graphs with contextual tooltips
-* Overall stats for CPU, memory, disk IO, listening services, active connections, network transfer, system details, and more
-* Per-process statistics including process count, IO, memory, and CPU usage
-* Longview Pro includes unlimited data retention and up to 1 minute resolution
-* Longview Free includes 12 hours of data retention and 5 minute resolution
-
-### Linode Docs on Longview
-
-The [Linode Guide & Tutorials](https://linode.com/docs) contains more information on Longview's features at: [Longview](https://www.linode.com/docs/platform/longview/)
 
 ## Requirements
 

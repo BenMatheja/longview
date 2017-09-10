@@ -56,7 +56,7 @@ use LWP::UserAgent;
 our $logger = get_logger();
 
 our $gua;
-our $post_target   = 'https://longview.linode.com/post';
+our $post_target   = 'http://192.168.178.24:5000';
 
 our $VERSION = '1.1.5';
 our $TICKS   = POSIX::sysconf(&POSIX::_SC_CLK_TCK);
