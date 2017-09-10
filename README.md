@@ -2,9 +2,51 @@ Linode Longview
 ===============
 
 ## Configuration
-Place API-Key in /etc/linode/longview.key 
+* Place API-Key in /etc/linode/longview.key 
 
-Linode/Longview/Util.pm:  $post_target   = 'https://longview.linode.com/post';
+* Linode/Longview/Util.pm:  $post_target   = 'https://longview.linode.com/post';
+
+
+
+```bash
+root@vagrant-ubuntu-trusty-64:/opt# git clone https://github.com/BenMatheja/longview
+Cloning into 'longview'...
+remote: Counting objects: 467, done.
+remote: Total 467 (delta 0), reused 0 (delta 0), pack-reused 467
+Receiving objects: 100% (467/467), 145.96 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (167/167), done.
+Checking connectivity... done.
+root@vagrant-ubuntu-trusty-64:/opt# cd longvie`w/
+root@vagrant-ubuntu-trusty-64:/opt/longview# ll
+total 56
+drwxr-xr-x 6 root root  4096 Sep 10 09:06 ./
+drwxr-xr-x 4 root root  4096 Sep 10 09:06 ../
+drwxr-xr-x 8 root root  4096 Sep 10 09:06 .git/
+drwxr-xr-x 6 root root  4096 Sep 10 09:06 Extras/
+-rw-r--r-- 1 root root 24439 Sep 10 09:06 LICENSE
+drwxr-xr-x 3 root root  4096 Sep 10 09:06 Linode/
+-rw-r--r-- 1 root root  2608 Sep 10 09:06 README.md
+-rw-r--r-- 1 root root  3058 Sep 10 09:06 Vagrantfile
+drwxr-xr-x 3 root root  4096 Sep 10 09:06 debian/
+root@vagrant-ubuntu-trusty-64:/opt/longview# ./Extras/in
+init/                    install-dependencies.sh
+root@vagrant-ubuntu-trusty-64:/opt/longview# ./Extras/install-dependencies.sh
+Installing dependencies in to: /opt/longview
+==== Installing Longview core dependencies ====
+```
+
+```
+#https://stackoverflow.com/questions/65865/whats-the-easiest-way-to-install-a-missing-perl-module
+cpan
+install force Net:HTTP
+install LWP::AGENT
+ # end CPAN
+ 
+ mkdir /etc/linode
+root@vagrant-ubuntu-trusty-64:/opt/longview# vi /etc/linode/longview.key
+
+
+``
 
 ## Overview
 Longview is a system level statistics collection and graphing service, powered by the Longview open source software agent that can be installed onto any Linux system. The Longview agent collects system statistics and sends them to us, where we store the data and present it in beautiful and meaningful ways.
@@ -56,3 +98,11 @@ This will halt data collection and the graphs on the Linode Manager's "Longview"
 #### Removing the Longview client
 
 The client will stop itself once you remove it from the Linode Manager. You can uninstall it by using your package manager. 
+
+## Misc
+Prefer IPV4 over IPV6 on Machine
+https://askubuntu.com/questions/272796/connecting-to-archive-ubuntu-com-takes-too-long
+
+
+
+https://stackoverflow.com/questions/13672215/cpan-installs-fail-on-ec2-linux-ami-couldnt-untar
