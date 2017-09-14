@@ -34,6 +34,7 @@ root@vagrant-ubuntu-trusty-64:/opt/longview# ./Extras/install-dependencies.sh
 Installing dependencies in to: /opt/longview
 ==== Installing Longview core dependencies ====
 ```
+Install Dependencies via CPAN
 
 ```
 #https://stackoverflow.com/questions/65865/whats-the-easiest-way-to-install-a-missing-perl-module
@@ -46,7 +47,7 @@ install LWP::AGENT
 root@vagrant-ubuntu-trusty-64:/opt/longview# vi /etc/linode/longview.key
 
 
-``
+```
 
 ## Overview
 Longview is a system level statistics collection and graphing service, powered by the Longview open source software agent that can be installed onto any Linux system. The Longview agent collects system statistics and sends them to us, where we store the data and present it in beautiful and meaningful ways.
