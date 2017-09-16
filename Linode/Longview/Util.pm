@@ -78,9 +78,10 @@ sub get_UA {
 		agent   => "Linode Longview $VERSION client: $apikey",
 		ssl_opts => {MultiHomed => 1, Timeout => 10}
 	);
+	$gua->default_headers('auth' => "$apikey");
 	return $gua;
 }
-
+#ToDo: Calculate HMAC on payload and add to header
 sub post {
 	my $payload = shift;
 	my $ua = get_UA();
