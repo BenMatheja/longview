@@ -56,7 +56,7 @@ use LWP::UserAgent;
 our $logger = get_logger();
 
 our $gua;
-our $post_target   = 'http://api.benmatheja.de/longview';
+our $post_target   = 'http://10.0.22.5/longview';
 
 our $VERSION = '1.1.6';
 our $TICKS   = POSIX::sysconf(&POSIX::_SC_CLK_TCK);
@@ -78,7 +78,6 @@ sub get_UA {
 		agent   => "Linode Longview $VERSION client: $apikey",
 		ssl_opts => {MultiHomed => 1, Timeout => 10}
 	);
-	$gua->default_headers('auth' => "$apikey");
 	return $gua;
 }
 #ToDo: Calculate HMAC on payload and add to header
