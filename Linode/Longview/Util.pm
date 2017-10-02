@@ -52,13 +52,15 @@ use Carp;
 use POSIX;
 use JSON;
 use LWP::UserAgent;
+use Data::GUID;
 
 our $logger = get_logger();
 
 our $gua;
-our $post_target   = 'http://10.0.22.5/longview';
+#our $post_target = 'http://10.0.22.1:5000/longview';
+our $post_target   = 'https://api.benmatheja.de/longview';
 
-our $VERSION = '1.1.6';
+our $VERSION = '1.1.7';
 our $TICKS   = POSIX::sysconf(&POSIX::_SC_CLK_TCK);
 our $PROCFS  = find_procfs()      or $logger->logdie("Couldn't find procfs: $!");
 our $ARCH    = get_architecture() or $logger->info("Couldn't determine architecture: $!");
@@ -78,12 +80,15 @@ sub get_UA {
 		agent   => "Linode Longview $VERSION client: $apikey",
 		ssl_opts => {MultiHomed => 1, Timeout => 10}
 	);
+	#Add Authorization Header
+	$gua->default_header('Authorization' => $apikey);
 	return $gua;
 }
-#ToDo: Calculate HMAC on payload and add to header
 sub post {
 	my $payload = shift;
 	my $ua = get_UA();
+	#Generate trace-id in lowercase
+	$ua->default_header('trace-id' => lc(Data::GUID->new()->as_string));
 	local $SIG{ALRM} = sub { die "LWP-Timeout";};
 	alarm(180);
 	$logger->trace("Posting Data");
